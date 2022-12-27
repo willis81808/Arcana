@@ -1,0 +1,26 @@
+{
+    "name": "Arcana",
+    "references": [
+        "UnboundLib",
+        "ModdingUtils",
+        "ModsPlus",
+        "Unity.TextMeshPro"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "BepInEx.dll",
+        "0Harmony.dll",
+        "Assembly-CSharp.dll",
+        "PhotonRealtime.dll",
+        "Photon3Unity3D.dll",
+        "PhotonUnityNetworking.dll",
+        "PhotonUnityNetworking.Utilities.dll",
+        "SonigonAudioEngine.Runtime.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
