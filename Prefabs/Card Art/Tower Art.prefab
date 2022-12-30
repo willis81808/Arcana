@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2730925022378270330}
   - component: {fileID: 2011184032944727660}
   m_Layer: 10
-  m_Name: Death Art
+  m_Name: Tower Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,12 +58,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.96, g: 0.96, b: 0.96, a: 1}
+  m_Color: {r: 1, g: 0.9256382, b: 0.6839622, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9f00b4d9c81754c44978278a981bb413, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57b20495f3fa44e409d17545123e0781, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

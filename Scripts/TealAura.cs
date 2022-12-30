@@ -27,6 +27,8 @@ public class TealAura : MonoBehaviour
 
     private StatChanges hermitBuff;
 
+    internal bool active;
+
     private void Start()
     {
         baseScale = transform.localScale;
@@ -50,6 +52,7 @@ public class TealAura : MonoBehaviour
     private IEnumerator AuraEffect()
     {
         yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => active);
 
         while (true)
         {
