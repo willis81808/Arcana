@@ -86,8 +86,8 @@ MonoBehaviour:
   cardStats:
   - positive: 1
     amount: +1
-    simepleAmount: 2
-    stat: Bullet Bounces
+    simepleAmount: 1
+    stat: BOUNCES
   rarity: 0
   cardArt: {fileID: 3893935163701102328, guid: 34f1d72ae543c604d9e09738495d3da4, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}

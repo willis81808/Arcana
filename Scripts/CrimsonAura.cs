@@ -22,14 +22,12 @@ public class CrimsonAura : MonoBehaviour
 
     [SerializeField]
     private UnityEvent onDealtDamage, onSpawn, onStartDespawn;
-
-    private Vector2 playerVelocity
-    {
-        get => (Vector2)owner.data.playerVel.GetFieldValue("velocity");
-    }
     
     private IEnumerator Start()
     {
+        // clamp scale to 4x base size
+        transform.localScale = Vector3.ClampMagnitude(transform.localScale, 4f);
+
         baseScale = transform.localScale;
         transform.localScale = Vector3.zero;
         owner = GetComponent<SpawnedAttack>().spawner;
@@ -67,7 +65,16 @@ public class CrimsonAura : MonoBehaviour
 
             if (!target.gameObject.TryGetComponent(out DOTDealer dotDealer))
             {
-                target.gameObject.AddComponent<DOTDealer>().Initialize(owner, target, 0.3f, 0.3f, transform.position, GetScaledForce, GetScaledDamage, OnDealtDamage);
+                target.gameObject.AddComponent<DOTDealer>().Initialize(
+                    owner,
+                    target,
+                    0.3f,
+                    0.3f,
+                    transform.position,
+                    GetScaledForce,
+                    GetScaledDamage,
+                    OnDealtDamage
+                );
             }
 
             damaged.Add(target);
@@ -86,7 +93,8 @@ public class CrimsonAura : MonoBehaviour
 
     private float GetScaledDamage()
     {
-        return damage * currentPercentage;
+        var radiusScalar = Mathf.Max(1f, baseScale.x);
+        return damage * currentPercentage * radiusScalar;
     }
 
     private void OnDealtDamage()
@@ -105,7 +113,15 @@ public class DOTDealer : MonoBehaviour
     private Func<float> forceProvider;
     private Action onDealtDamageAction;
 
-    public void Initialize(Player owner, Player target, float duration, float interval, Vector3 effectCenter, Func<float> forceProvider, Func<float> damageProvider, Action onDealtDamageAction)
+    public void Initialize(
+        Player owner,
+        Player target,
+        float duration,
+        float interval,
+        Vector3 effectCenter,
+        Func<float> forceProvider,
+        Func<float> damageProvider,
+        Action onDealtDamageAction)
     {
         this.owner = owner;
         this.target = target;
@@ -124,7 +140,11 @@ public class DOTDealer : MonoBehaviour
         {
             if (target != owner)
             {
-                target.data.healthHandler.CallTakeDamage(Vector3.Normalize(effectCenter - target.transform.position) * damageProvider.Invoke(), target.transform.position, damagingPlayer: owner);
+                target.data.healthHandler.CallTakeDamage(
+                    Vector3.Normalize(effectCenter - target.transform.position) * damageProvider.Invoke(),
+                    target.transform.position,
+                    damagingPlayer: owner
+                );
                 onDealtDamageAction?.Invoke();
             }
             yield return new WaitForSeconds(interval);

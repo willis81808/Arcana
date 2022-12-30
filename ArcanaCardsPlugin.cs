@@ -6,6 +6,7 @@ using UnboundLib;
 using UnboundLib.Cards;
 using BepInEx.Configuration;
 using UnboundLib.Utils.UI;
+using HarmonyLib;
 
 [BepInDependency("com.willis.rounds.unbound", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("pykess.rounds.plugins.moddingutils", BepInDependency.DependencyFlags.HardDependency)]
@@ -18,7 +19,7 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
 {
     private const string ModId = "com.willis.rounds.arcana";
     private const string ModName = "Arcana";
-    private const string ModVersion = "0.0.1";
+    private const string ModVersion = "1.1.1";
     private const string CompatabilityModName = "Arcana";
 
     internal static LayerMask playerMask, projectileMask;
@@ -26,18 +27,22 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
 
     void Awake()
     {
-        CustomCard.RegisterUnityCard<DevilCard>(Assets.DevilCard, null);
-        CustomCard.RegisterUnityCard<SunCard>(Assets.SunCard, null);
-        CustomCard.RegisterUnityCard<HermitCard>(Assets.HermitCard, null);
-        CustomCard.RegisterUnityCard<MagicianCard>(Assets.MagicianCard, null);
-        CustomCard.RegisterUnityCard<MoonCard>(Assets.MoonCard, null);
-
+        CustomCard.RegisterUnityCard(Assets.DeathCard, "Arcana", "Death", true, null);
+        CustomCard.RegisterUnityCard(Assets.SunCard, "Arcana", "The Sun", true, null);
+        CustomCard.RegisterUnityCard(Assets.MoonCard, "Arcana", "The Moon", true, null);
+        CustomCard.RegisterUnityCard(Assets.DevilCard, "Arcana", "The Devil", true, null);
+        CustomCard.RegisterUnityCard(Assets.HermitCard, "Arcana", "The Hermit", true, null);
+        CustomCard.RegisterUnityCard(Assets.MagicianCard, "Arcana", "The Magician", true, null);
+        
         playerMask = LayerMask.GetMask(new string[] { "Player" });
         projectileMask = LayerMask.GetMask(new string[] { "Projectile" });
     }
 
     void Start()
     {
+        var harmony = new Harmony(ModId);
+        harmony.PatchAll();
+
         reducedParticles = Config.Bind(CompatabilityModName, "Arcana_ReducedParticles", false, "Enable reduced particle mode for faster performance");
         Unbound.RegisterMenu(ModName, null, SetupMenu, showInPauseMenu: true);
     }

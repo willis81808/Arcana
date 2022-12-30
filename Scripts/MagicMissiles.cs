@@ -55,7 +55,7 @@ public class MagicMissiles : MonoBehaviour
     {
         if (target == null || (!PhotonNetwork.IsMasterClient && !PhotonNetwork.OfflineMode)) return;
 
-        var damage = Vector3.Normalize(target.transform.position - spawned.spawner.transform.position) * this.damage;
+        var damage = Vector3.Normalize(target.transform.position - spawned.spawner.transform.position) * GetScaledDamage();
         target.data.healthHandler.CallTakeDamage(damage, target.transform.position, damagingPlayer: spawned.spawner);
 
         onDamage?.Invoke();
@@ -70,5 +70,12 @@ public class MagicMissiles : MonoBehaviour
     {
         if (attractor != null) Destroy(attractor.gameObject);
         Destroy(gameObject);
+    }
+
+    private float GetScaledDamage()
+    {
+        var cooldown = Mathf.Max(1f, spawned.spawner.data.block.Cooldown());
+        var blockCount = Mathf.Max(1f, spawned.spawner.data.block.additionalBlocks);
+        return damage * (cooldown / 4f) / blockCount;
     }
 }

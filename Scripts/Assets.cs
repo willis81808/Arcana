@@ -15,4 +15,5 @@ public class Assets
     internal static GameObject HermitCard = Bundle.LoadAsset<GameObject>("HermitCard");
     internal static GameObject MagicianCard = Bundle.LoadAsset<GameObject>("MagicianCard");
     internal static GameObject MoonCard = Bundle.LoadAsset<GameObject>("MoonCard");
+    internal static GameObject DeathCard = Bundle.LoadAsset<GameObject>("DeathCard");
 }

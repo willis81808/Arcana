@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7462913222027974039}
   - component: {fileID: 5514614591954998176}
   m_Layer: 0
-  m_Name: MoonCard
+  m_Name: DeathCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,8 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89d10daf3634254bb2e6b79b9ee4280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Arcana_Moon_Theme
-  targetColor: {r: 0.18039216, g: 0.5019608, b: 0.63529414, a: 1}
+  Name: Arcana_Death_Theme
+  targetColor: {r: 0.9921569, g: 0.9960785, b: 1, a: 1}
   bgColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8263570992834231699
 MonoBehaviour:
@@ -79,21 +79,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: The Moon
-  cardDestription: '<b>Lunar Burst</b>: Channel the energy of the unconscious into
-    a beam of lunar energy that explodes outward, devastating their enemies and leaving
-    them stunned in its wake'
+  cardName: Death
+  cardDestription: '<b>Eternal Reclamation</b>: Each time the user is revived, they
+    will return stronger and more resilient, their experiences in death fueling their
+    power and determination.'
   cardStats:
   - positive: 1
-    amount: +25%
+    amount: +2
     simepleAmount: 2
+    stat: LIVES
+  - positive: 0
+    amount: -50%
+    simepleAmount: 7
     stat: HEALTH
-  - positive: 1
-    amount: -25%
-    simepleAmount: 6
-    stat: BLOCK COOLDOWN
+  - positive: 0
+    amount: -50%
+    simepleAmount: 7
+    stat: DAMAGE
   rarity: 0
-  cardArt: {fileID: 6279288524393080084, guid: 5e7499e97a21d7945a3236ead014ba0d, type: 3}
+  cardArt: {fileID: 3893935163701102328, guid: b509cb1c25a000949ae5f4f90dbc7aee, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
@@ -102,7 +106,7 @@ MonoBehaviour:
   blacklistedCategories: []
   cardBase: {fileID: 4522770397670819324, guid: e539477e546eb0545b594b51ad9bf38c,
     type: 3}
-  colorTheme: 7
+  colorTheme: 1
 --- !u!114 &8287063740587541859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,10 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundCharacterSlowFreeze: {fileID: 0}
-  AddObjectToPlayer: {fileID: 0}
+  AddObjectToPlayer: {fileID: 6492452065756214905, guid: 3de0c7e820ae0a447b63660133ffd592,
+    type: 3}
   objectsAddedToPlayer: []
   sizeMultiplier: 1
-  health: 1.25
+  health: 0.5
   movementSpeed: 1
   jump: 1
   gravity: 1
@@ -132,7 +137,7 @@ MonoBehaviour:
   lifeSteal: 0
   refreshOnDamage: 0
   automaticReload: 1
-  respawns: 0
+  respawns: 2
   remainingRespawns: 0
   tasteOfBloodSpeed: 1
   rageSpeed: 1
@@ -176,7 +181,7 @@ MonoBehaviour:
   shootPosition: {fileID: 0}
   player: {fileID: 0}
   isReloading: 0
-  damage: 1
+  damage: 0.5
   reloadTime: 1
   reloadTimeAdd: 0
   recoilMuiltiplier: 1
@@ -253,15 +258,14 @@ MonoBehaviour:
   soundBlockRecharged: {fileID: 0}
   soundBlockBlocked: {fileID: 0}
   soundBlockStatusEffect: {fileID: 0}
-  objectsToSpawn:
-  - {fileID: 8140653295685109290, guid: a5601841ea3c7724cb5489ef45f1db6f, type: 3}
+  objectsToSpawn: []
   sinceBlock: 0
   particle: {fileID: 0}
   reloadParticle: {fileID: 0}
   blockedPart: {fileID: 0}
   cooldown: 0
   counter: 1000
-  cdMultiplier: 0.75
+  cdMultiplier: 1
   cdAdd: 0
   forceToAdd: 0
   forceToAddUp: 0
