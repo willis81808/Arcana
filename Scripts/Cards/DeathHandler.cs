@@ -20,6 +20,10 @@ public class DeathHandler : PlayerHook
 
     private List<StatChangeTracker> buffs = new List<StatChangeTracker>();
 
+    private ReversibleColorEffect colorEffect = null;
+
+    private Coroutine buffCoroutine = null;
+
     public StatChanges buffToApply = new StatChanges
     {
         Damage = 2f,
@@ -34,30 +38,39 @@ public class DeathHandler : PlayerHook
     protected override void Start()
     {
         base.Start();
-        RevivePatch.RegisterAction(player, ApplyBuff);
+        RevivePatch.RegisterReviveAction(player, ApplyBuff);
+        RevivePatch.RegisterTrueDeathAction(player, OnTrueDeath);
     }
 
-    private void ApplyBuff(bool isFullRevive)
+    private void OnTrueDeath()
     {
+        UnityEngine.Debug.Log("True death");
+
+        reviveCount = 0;
         ClearBuffs();
+    }
 
-        if (isFullRevive)
-        {
-            reviveCount = 0;
-            return;
-        }
-        if (!active) return;
-
+    private void ApplyBuff()
+    {
+        UnityEngine.Debug.Log("Revive");
 
         reviveCount++;
-        Unbound.Instance.StartCoroutine(ApplyBuffCoroutine(reviveCount));
+        buffCoroutine = Unbound.Instance.StartCoroutine(ApplyBuffCoroutine(reviveCount));
     }
 
     private IEnumerator ApplyBuffCoroutine(int count)
     {
         yield return new WaitUntil(() => player.gameObject.activeInHierarchy);
 
-        var colorEffect = player.gameObject.AddComponent<ReversibleColorEffect>();
+        int buffCount = buffs.Count;
+
+        ClearBuffs();
+
+        UnityEngine.Debug.Log($"Removed {buffCount} buffs, adding {count} new buffs");
+
+        yield return null;
+
+        colorEffect = player.gameObject.AddComponent<ReversibleColorEffect>();
         var color = count - 1 < colors.Length ? colors[count - 1] : colors[colors.Length - 1];
         colorEffect.SetColor(color);
 
@@ -65,7 +78,6 @@ public class DeathHandler : PlayerHook
         {
             var appliedBuff = StatManager.Apply(player, buffToApply);
             buffs.Add(appliedBuff);
-            yield return null;
         }
     }
 
@@ -87,16 +99,27 @@ public class DeathHandler : PlayerHook
 
     private void ClearBuffs()
     {
+        ClearColor();
         foreach (var buff in buffs.Where(b => b != null))
         {
             StatManager.Remove(buff);
         }
         buffs.Clear();
     }
-    
+
+    private void ClearColor()
+    {
+        if (colorEffect != null)
+        {
+            Destroy(colorEffect);
+            colorEffect = null;
+        }
+    }
+
     protected override void OnDestroy()
     {
-        RevivePatch.DeregisterAction(player, ApplyBuff);
+        RevivePatch.DeregisterReviveAction(player, ApplyBuff);
+        RevivePatch.DeregisterTrueDeathAction(player, OnTrueDeath);
         ClearBuffs();
         base.OnDestroy();
     }
@@ -105,21 +128,36 @@ public class DeathHandler : PlayerHook
 [HarmonyPatch(typeof(HealthHandler))]
 public class RevivePatch
 {
-    private static Dictionary<Player, Action<bool>> registeredReviveActions = new Dictionary<Player, Action<bool>>();
-
-    [HarmonyPatch("Revive")]
-    [HarmonyPostfix]
-    public static void Revive_Postfix(HealthHandler __instance, Player ___player, bool isFullRevive)
+    private static Dictionary<Player, Action> registeredReviveActions = new Dictionary<Player, Action>();
+    private static Dictionary<Player, Action> registeredTrueDeathActions = new Dictionary<Player, Action>();
+    
+    [HarmonyPatch("RPCA_Die_Phoenix")]
+    [HarmonyPrefix]
+    public static void PhoenixRevive_Postfix(Player ___player, bool ___isRespawning, Vector2 deathDirection)
     {
-        if (registeredReviveActions.TryGetValue(___player, out Action<bool> onRevive))
+        if (___isRespawning || ___player.data.dead) return;
+
+        if (registeredReviveActions.TryGetValue(___player, out Action onRevive))
         {
-            onRevive?.Invoke(isFullRevive);
+            onRevive?.Invoke();
         }
     }
 
-    public static void RegisterAction(Player player, Action<bool> onRevive)
+    [HarmonyPatch("RPCA_Die")]
+    [HarmonyPrefix]
+    public static void TrueDeath_Postfix(Player ___player, bool ___isRespawning, Vector2 deathDirection)
     {
-        if (registeredReviveActions.TryGetValue(player, out Action<bool> action))
+        if (___isRespawning || ___player.data.dead) return;
+
+        if (registeredTrueDeathActions.TryGetValue(___player, out Action onTrueDeath))
+        {
+            onTrueDeath?.Invoke();
+        }
+    }
+
+    public static void RegisterReviveAction(Player player, Action onRevive)
+    {
+        if (registeredReviveActions.TryGetValue(player, out Action action))
         {
             action += onRevive;
         }
@@ -129,11 +167,31 @@ public class RevivePatch
         }
     }
 
-    public static void DeregisterAction(Player player, Action<bool> onRevive)
+    public static void DeregisterReviveAction(Player player, Action onRevive)
     {
-        if (registeredReviveActions.TryGetValue(player, out Action<bool> action))
+        if (registeredReviveActions.TryGetValue(player, out Action action))
         {
             action -= onRevive;
+        }
+    }
+
+    public static void RegisterTrueDeathAction(Player player, Action onTrueDeath)
+    {
+        if (registeredTrueDeathActions.TryGetValue(player, out Action action))
+        {
+            action += onTrueDeath;
+        }
+        else
+        {
+            registeredTrueDeathActions.Add(player, onTrueDeath);
+        }
+    }
+
+    public static void DeregisterTrueDeathAction(Player player, Action onTrueDeath)
+    {
+        if (registeredTrueDeathActions.TryGetValue(player, out Action action))
+        {
+            action -= onTrueDeath;
         }
     }
 }

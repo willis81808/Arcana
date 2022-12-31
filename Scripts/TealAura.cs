@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnboundLib;
 using ModsPlus;
+using ModdingUtils.Utils;
 
 public class TealAura : MonoBehaviour
 {
@@ -27,15 +28,16 @@ public class TealAura : MonoBehaviour
 
     private StatChanges hermitBuff;
 
-    internal bool active;
-
-    private void Start()
+    private void Awake()
     {
         baseScale = transform.localScale;
         transform.localScale = Vector3.zero;
 
         owner = GetComponentInParent<Player>();
+    }
 
+    private void Start()
+    {
         hermitBuff = new StatChanges
         {
             MaxHealth = healthMultiplier,
@@ -51,11 +53,10 @@ public class TealAura : MonoBehaviour
 
     private IEnumerator AuraEffect()
     {
-        yield return new WaitForSeconds(1f);
-        yield return new WaitUntil(() => active);
-
         while (true)
         {
+            yield return new WaitUntil(() => PlayerStatus.PlayerAliveAndSimulated(owner));
+
             if (targetPercentage >= 1)
             {
                 var statAdded = StatManager.Apply(owner, hermitBuff);
@@ -88,6 +89,7 @@ public class TealAura : MonoBehaviour
                 yield return null;
             }
         }
+        ClearBuffs();
     }
     
     private void Update()

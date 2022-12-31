@@ -4,7 +4,8 @@
         "UnboundLib",
         "ModdingUtils",
         "ModsPlus",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "RarityLib"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

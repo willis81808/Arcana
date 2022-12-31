@@ -8,18 +8,18 @@ using BepInEx.Configuration;
 using UnboundLib.Utils.UI;
 using HarmonyLib;
 
-[BepInDependency("com.willis.rounds.unbound", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("pykess.rounds.plugins.moddingutils", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("com.willis.rounds.modsplus", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("root.rarity.lib", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("root.cardtheme.lib", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("com.willis.rounds.unbound")]
+[BepInDependency("pykess.rounds.plugins.moddingutils")]
+[BepInDependency("com.willis.rounds.modsplus")]
+[BepInDependency("root.rarity.lib")]
+[BepInDependency("root.cardtheme.lib")]
 [BepInPlugin(ModId, ModName, ModVersion)]
 [BepInProcess("Rounds.exe")]
 public class ArcanaCardsPlugin : BaseUnityPlugin
 {
     private const string ModId = "com.willis.rounds.arcana";
     private const string ModName = "Arcana";
-    private const string ModVersion = "1.1.2";
+    private const string ModVersion = "1.2.0";
     private const string CompatabilityModName = "Arcana";
 
     internal static LayerMask playerMask, projectileMask;
@@ -33,7 +33,10 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
         CustomCard.RegisterUnityCard(Assets.DevilCard, "Arcana", "The Devil", true, null);
         CustomCard.RegisterUnityCard(Assets.HermitCard, "Arcana", "The Hermit", true, null);
         CustomCard.RegisterUnityCard(Assets.MagicianCard, "Arcana", "The Magician", true, null);
-        
+        //CustomCard.RegisterUnityCard(Assets.WheelCard, "Arcana", "Wheel of Fortune", true, null);
+        //CustomCard.RegisterUnityCard(Assets.TowerCard, "Arcana", "The Tower", true, null);
+        CustomCard.RegisterUnityCard(Assets.FoolCard, "Arcana", "The Fool", true, null);
+
         playerMask = LayerMask.GetMask(new string[] { "Player" });
         projectileMask = LayerMask.GetMask(new string[] { "Projectile" });
     }
