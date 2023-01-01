@@ -51,8 +51,7 @@ public class DamagingParticles : MonoBehaviour
 
     private float GetScaledDamage()
     {
-        // scale damage based off of attack speed (faster attack speed = lower damage)
-        // minimum damage is 20% of base
-        return Mathf.Max(damage / 5, damage * spawnedAttack.spawner.data.weaponHandler.gun.attackSpeed) * transform.localScale.x;
+        // scale based on gun damage
+        return damage * spawnedAttack.spawner.data.weaponHandler.gun.damage;
     }
 }

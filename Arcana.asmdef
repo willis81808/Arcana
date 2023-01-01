@@ -20,7 +20,8 @@
         "Photon3Unity3D.dll",
         "PhotonUnityNetworking.dll",
         "PhotonUnityNetworking.Utilities.dll",
-        "SonigonAudioEngine.Runtime.dll"
+        "SonigonAudioEngine.Runtime.dll",
+        "Sirenix.OdinInspector.Attributes.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

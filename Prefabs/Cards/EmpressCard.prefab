@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7462913222027974039}
   - component: {fileID: 5514614591954998176}
   m_Layer: 0
-  m_Name: MagicianCard
+  m_Name: EmpressCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,8 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89d10daf3634254bb2e6b79b9ee4280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Arcana_Magician_Theme
-  targetColor: {r: 0.41960788, g: 0.18823531, b: 0.48235297, a: 1}
+  Name: Arcana_Empress_Theme
+  targetColor: {r: 0.5058824, g: 0.8235295, b: 0.38823533, a: 1}
   bgColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8263570992834231699
 MonoBehaviour:
@@ -79,13 +79,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: The Magician
-  cardDestription: '<b>Manifestation</b>: With this power, you may spawn homing projectiles
-    that seek out your enemies and follow them wherever they go, guided by the magic
-    of pure will.'
-  cardStats: []
+  cardName: The Empress
+  cardDestription: '<b>Nature''s Fury</b>: The Empress draws upon the primal energy
+    of the earth to call forth dangerous thorns of the land, sprouting up around her
+    to slow and damage her enemies. Her thorns are as beautiful as they are deadly.'
+  cardStats:
+  - positive: 1
+    amount: +30%
+    simepleAmount: 2
+    stat: HEALTH
   rarity: 0
-  cardArt: {fileID: 5354054407238807744, guid: f9636817b9bc06749ab3b09ffdb0987c, type: 3}
+  cardArt: {fileID: 9189453168236018483, guid: edb80f488eb3b9045b7fb50b08c5fce7, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
@@ -108,10 +112,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundCharacterSlowFreeze: {fileID: 0}
-  AddObjectToPlayer: {fileID: 0}
+  AddObjectToPlayer: {fileID: 8481074026741584276, guid: 89f7246b0f8fa444592b1de87e24a34c,
+    type: 3}
   objectsAddedToPlayer: []
   sizeMultiplier: 1
-  health: 1
+  health: 1.3
   movementSpeed: 1
   jump: 1
   gravity: 1
@@ -245,8 +250,7 @@ MonoBehaviour:
   soundBlockRecharged: {fileID: 0}
   soundBlockBlocked: {fileID: 0}
   soundBlockStatusEffect: {fileID: 0}
-  objectsToSpawn:
-  - {fileID: 2698565829235618433, guid: 6ad996429d807dc4081af7bf92d891d3, type: 3}
+  objectsToSpawn: []
   sinceBlock: 0
   particle: {fileID: 0}
   reloadParticle: {fileID: 0}

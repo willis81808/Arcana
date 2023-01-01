@@ -89,7 +89,6 @@ public class TealAura : MonoBehaviour
                 yield return null;
             }
         }
-        ClearBuffs();
     }
     
     private void Update()

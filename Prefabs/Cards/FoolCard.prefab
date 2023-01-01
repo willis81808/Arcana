@@ -82,7 +82,7 @@ MonoBehaviour:
   cardName: The Fool
   cardDestription: '<b>Fortune''s Gambit</b>: Increase the odds of gaining rare and
     powerful abilities in the future, though at the cost of not knowing exactly what
-    these abilities will be'
+    these abilities will be.'
   cardStats: []
   rarity: 0
   cardArt: {fileID: 3893935163701102328, guid: 178eef6f5469a8d4396df5f9bea47c39, type: 3}
@@ -112,7 +112,7 @@ MonoBehaviour:
     type: 3}
   objectsAddedToPlayer: []
   sizeMultiplier: 1
-  health: 0.7
+  health: 1
   movementSpeed: 1
   jump: 1
   gravity: 1

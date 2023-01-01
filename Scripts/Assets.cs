@@ -19,6 +19,7 @@ public class Assets
     internal static GameObject FoolCard = Bundle.LoadAsset<GameObject>("FoolCard");
     internal static GameObject TowerCard = Bundle.LoadAsset<GameObject>("TowerCard");
     internal static GameObject WheelCard = Bundle.LoadAsset<GameObject>("WheelCard");
-    
+    internal static GameObject EmpressCard = Bundle.LoadAsset<GameObject>("EmpressCard");
+
     internal static GameObject FoolBlackout = Bundle.LoadAsset<GameObject>("Fool Blackout");
 }

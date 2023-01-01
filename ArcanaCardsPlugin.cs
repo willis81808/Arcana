@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BepInEx;
+using BepInEx.Configuration;
+using HarmonyLib;
 using UnboundLib;
 using UnboundLib.Cards;
-using BepInEx.Configuration;
 using UnboundLib.Utils.UI;
-using HarmonyLib;
+using ModsPlus;
+
 
 [BepInDependency("com.willis.rounds.unbound")]
 [BepInDependency("pykess.rounds.plugins.moddingutils")]
@@ -27,15 +29,16 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
 
     void Awake()
     {
-        CustomCard.RegisterUnityCard(Assets.DeathCard, "Arcana", "Death", true, null);
-        CustomCard.RegisterUnityCard(Assets.SunCard, "Arcana", "The Sun", true, null);
-        CustomCard.RegisterUnityCard(Assets.MoonCard, "Arcana", "The Moon", true, null);
-        CustomCard.RegisterUnityCard(Assets.DevilCard, "Arcana", "The Devil", true, null);
-        CustomCard.RegisterUnityCard(Assets.HermitCard, "Arcana", "The Hermit", true, null);
-        CustomCard.RegisterUnityCard(Assets.MagicianCard, "Arcana", "The Magician", true, null);
-        //CustomCard.RegisterUnityCard(Assets.WheelCard, "Arcana", "Wheel of Fortune", true, null);
-        //CustomCard.RegisterUnityCard(Assets.TowerCard, "Arcana", "The Tower", true, null);
-        CustomCard.RegisterUnityCard(Assets.FoolCard, "Arcana", "The Fool", true, null);
+        CustomCard.RegisterUnityCard(Assets.DeathCard, "Arcana", "Death", true, c => c.SetAbbreviation("De"));
+        CustomCard.RegisterUnityCard(Assets.SunCard, "Arcana", "The Sun", true, c => c.SetAbbreviation("Su"));
+        CustomCard.RegisterUnityCard(Assets.MoonCard, "Arcana", "The Moon", true, c => c.SetAbbreviation("Mo"));
+        CustomCard.RegisterUnityCard(Assets.DevilCard, "Arcana", "The Devil", true, c => c.SetAbbreviation("De"));
+        CustomCard.RegisterUnityCard(Assets.HermitCard, "Arcana", "The Hermit", true, c => c.SetAbbreviation("He"));
+        CustomCard.RegisterUnityCard(Assets.MagicianCard, "Arcana", "The Magician", true, c => c.SetAbbreviation("Ma"));
+        //CustomCard.RegisterUnityCard(Assets.WheelCard, "Arcana", "Wheel of Fortune", true, c => c.SetAbbreviation("Wh"));
+        CustomCard.RegisterUnityCard(Assets.TowerCard, "Arcana", "The Tower", true, c => c.SetAbbreviation("To"));
+        CustomCard.RegisterUnityCard(Assets.FoolCard, "Arcana", "The Fool", true, c => c.SetAbbreviation("Fo"));
+        CustomCard.RegisterUnityCard(Assets.EmpressCard, "Arcana", "The Empress", true, c => c.SetAbbreviation("Em"));
 
         playerMask = LayerMask.GetMask(new string[] { "Player" });
         projectileMask = LayerMask.GetMask(new string[] { "Projectile" });

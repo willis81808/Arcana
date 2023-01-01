@@ -82,7 +82,7 @@ MonoBehaviour:
   cardName: The Moon
   cardDestription: '<b>Lunar Burst</b>: Channel the energy of the unconscious into
     a beam of lunar energy that explodes outward, devastating their enemies and leaving
-    them stunned in its wake'
+    them stunned in its wake.'
   cardStats:
   - positive: 1
     amount: +25%

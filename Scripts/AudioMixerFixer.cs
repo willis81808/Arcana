@@ -7,6 +7,7 @@ using UnityEngine;
 using SoundImplementation;
 using UnityEngine.Audio;
 
+[RequireComponent(typeof(SoundUnityEventPlayer))]
 public class AudioMixerFixer : MonoBehaviour
 {
     public enum AudioType

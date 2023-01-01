@@ -81,7 +81,7 @@ MonoBehaviour:
   soundDisableBlockBasic: 0
   cardName: The Devil
   cardDestription: '<b>Soulfire Strike</b>: Call upon the chains of temptation and
-    enslavement to push others away and degrade their spirit'
+    enslavement to push others away and degrade their spirit.'
   cardStats:
   - positive: 1
     amount: +50%

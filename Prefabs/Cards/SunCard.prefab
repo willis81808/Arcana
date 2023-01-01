@@ -82,7 +82,7 @@ MonoBehaviour:
   cardName: The Sun
   cardDestription: '<b>Radiant Judgment</b>: Channel the power of the sun into your
     shots, causing them to ignite with divine fire that burns away falsehoods and
-    enemies alike'
+    enemies alike.'
   cardStats:
   - positive: 1
     amount: +1

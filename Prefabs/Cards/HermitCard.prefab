@@ -81,7 +81,7 @@ MonoBehaviour:
   soundDisableBlockBasic: 0
   cardName: The Hermit
   cardDestription: '<b>Inner Strength</b>: Gain temporary boosts to your stats and
-    abilities by tapping into your inner strength and resolve'
+    abilities by tapping into your inner strength and resolve.'
   cardStats:
   - positive: 0
     amount: -30%

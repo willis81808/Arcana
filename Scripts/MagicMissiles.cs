@@ -40,7 +40,7 @@ public class MagicMissiles : MonoBehaviour
         spawned = GetComponent<SpawnedAttack>();
 
         target = PlayerManager.instance.players
-            .Where(p => p.teamID != spawned.spawner.teamID && !p.data.dead)
+            .Where(p => p.teamID != spawned.spawner.teamID && p.IsFullyAlive())
             .OrderBy(p => Vector3.Distance(transform.position, p.transform.position))
             .FirstOrDefault();
 

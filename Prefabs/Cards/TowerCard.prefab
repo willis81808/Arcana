@@ -82,7 +82,7 @@ MonoBehaviour:
   cardName: The Tower
   cardDestription: '<b>Manifestation</b>: With this power, you may spawn homing projectiles
     that seek out your enemies and follow them wherever they go, guided by the magic
-    of pure will'
+    of pure will.'
   cardStats: []
   rarity: 0
   cardArt: {fileID: 3893935163701102328, guid: 7889c6e80553fd34aaabefaeef1469c6, type: 3}
@@ -111,7 +111,7 @@ MonoBehaviour:
   AddObjectToPlayer: {fileID: 0}
   objectsAddedToPlayer: []
   sizeMultiplier: 1
-  health: 0.7
+  health: 1
   movementSpeed: 1
   jump: 1
   gravity: 1
@@ -217,7 +217,22 @@ MonoBehaviour:
   currentCharge: 0
   useCharge: 0
   dontAllowAutoFire: 0
-  objectsToSpawn: []
+  objectsToSpawn:
+  - effect: {fileID: 99686914709528979, guid: dec6aef4664849a4c8d6c0edfcba3938, type: 3}
+    direction: 2
+    spawnOn: 0
+    spawnAsChild: 0
+    numberOfSpawns: 1
+    normalOffset: 0.5
+    stickToBigTargets: 0
+    stickToAllTargets: 0
+    zeroZ: 0
+    AddToProjectile: {fileID: 190666, guid: 992c31aa5088a9649851c996f2a08b7e, type: 3}
+    removeScriptsFromProjectileObject: 0
+    scaleStacks: 0
+    scaleStackM: 0.5
+    scaleFromDamage: 0
+    stacks: 0
   projectileColor: {r: 0, g: 0, b: 0, a: 1}
   waveMovement: 0
   teleport: 0

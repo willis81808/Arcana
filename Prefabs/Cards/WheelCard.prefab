@@ -82,7 +82,7 @@ MonoBehaviour:
   cardName: Wheel of Fortune
   cardDestription: '<b>Manifestation</b>: With this power, you may spawn homing projectiles
     that seek out your enemies and follow them wherever they go, guided by the magic
-    of pure will'
+    of pure will.'
   cardStats: []
   rarity: 0
   cardArt: {fileID: 3893935163701102328, guid: b76b0b3f2994409489e9092e65feed7a, type: 3}
@@ -111,7 +111,7 @@ MonoBehaviour:
   AddObjectToPlayer: {fileID: 0}
   objectsAddedToPlayer: []
   sizeMultiplier: 1
-  health: 0.7
+  health: 1
   movementSpeed: 1
   jump: 1
   gravity: 1
