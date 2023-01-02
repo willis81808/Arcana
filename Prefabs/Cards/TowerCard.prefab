@@ -80,10 +80,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: The Tower
-  cardDestription: '<b>Manifestation</b>: With this power, you may spawn homing projectiles
-    that seek out your enemies and follow them wherever they go, guided by the magic
-    of pure will.'
-  cardStats: []
+  cardDestription: '<b>Thundering Strike</b>: Attacks call forth a bolt of lightning,
+    which will jump from enemy to enemy. Representing the Tower''s ability to bring
+    about radical change and shake things up in any situation, use this power to disrupt
+    and disorient the enemy''s ranks.'
+  cardStats:
+  - positive: 1
+    amount: +75%
+    simepleAmount: 3
+    stat: BULLET SPEED
   rarity: 0
   cardArt: {fileID: 3893935163701102328, guid: 7889c6e80553fd34aaabefaeef1469c6, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
@@ -174,7 +179,7 @@ MonoBehaviour:
   recoilMuiltiplier: 1
   knockback: 1
   attackSpeed: 1
-  projectileSpeed: 1
+  projectileSpeed: 1.75
   projectielSimulatonSpeed: 1
   gravity: 1
   damageAfterDistanceMultiplier: 1

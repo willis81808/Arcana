@@ -8,7 +8,7 @@ using UnboundLib;
 using UnboundLib.Cards;
 using UnboundLib.Utils.UI;
 using ModsPlus;
-
+using UnboundLib.GameModes;
 
 [BepInDependency("com.willis.rounds.unbound")]
 [BepInDependency("pykess.rounds.plugins.moddingutils")]
@@ -21,7 +21,7 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
 {
     private const string ModId = "com.willis.rounds.arcana";
     private const string ModName = "Arcana";
-    private const string ModVersion = "1.2.0";
+    private const string ModVersion = "1.3.0";
     private const string CompatabilityModName = "Arcana";
 
     internal static LayerMask playerMask, projectileMask;
@@ -39,6 +39,8 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
         CustomCard.RegisterUnityCard(Assets.TowerCard, "Arcana", "The Tower", true, c => c.SetAbbreviation("To"));
         CustomCard.RegisterUnityCard(Assets.FoolCard, "Arcana", "The Fool", true, c => c.SetAbbreviation("Fo"));
         CustomCard.RegisterUnityCard(Assets.EmpressCard, "Arcana", "The Empress", true, c => c.SetAbbreviation("Em"));
+
+        GameModeManager.AddHook(GameModeHooks.HookPlayerPickEnd, (gm) => TempExtraPicks.HandleExtraPicks());
 
         playerMask = LayerMask.GetMask(new string[] { "Player" });
         projectileMask = LayerMask.GetMask(new string[] { "Projectile" });

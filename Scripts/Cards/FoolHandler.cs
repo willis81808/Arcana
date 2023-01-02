@@ -10,22 +10,20 @@ using RarityLib.Utils;
 
 public class FoolHandler : PlayerHook
 {
-    internal static FoolHandler Instance { get; private set; }
+    internal static Dictionary<Player, FoolHandler> fooledPlayers = new Dictionary<Player, FoolHandler>();
 
     [SerializeField]
     private float rarityScalar;
 
     private Dictionary<Rarity, float> changes = new Dictionary<Rarity, float>();
-
-    internal Player owner => player;
-
+    
     protected override void Start()
     {
         base.Start();
 
-        if (!player.data.view.IsMine) return;
+        fooledPlayers[player] = this;
 
-        Instance = this;
+        if (!player.data.view.IsMine) return;
 
         var rareData = RarityUtils.GetRarityData(CardInfo.Rarity.Rare);
         foreach (var rarity in RarityUtils.Rarities.Values.Where(r => r.calculatedRarity <= rareData.calculatedRarity))
@@ -49,7 +47,7 @@ public class FoolHandler : PlayerHook
         
         if (!player.data.view.IsMine) return;
 
-        Instance = null;
+        fooledPlayers.Remove(player);
 
         foreach (var rarity in changes.Keys)
         {

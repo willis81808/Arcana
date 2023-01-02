@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8402125170873539763}
   - component: {fileID: 3011799950950826583}
+  - component: {fileID: 114798356099861160}
   m_Layer: 0
   m_Name: FoolHandler
   m_TagString: Untagged
@@ -44,3 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rarityScalar: 10
+--- !u!114 &114798356099861160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8243957350604943057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09cfef6e4448b334d98b974844c93a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extraPicks: 1

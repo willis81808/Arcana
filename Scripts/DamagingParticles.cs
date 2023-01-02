@@ -52,6 +52,6 @@ public class DamagingParticles : MonoBehaviour
     private float GetScaledDamage()
     {
         // scale based on gun damage
-        return damage * spawnedAttack.spawner.data.weaponHandler.gun.damage;
+        return damage * spawnedAttack.spawner.data.weaponHandler.gun.damage / 2f;
     }
 }

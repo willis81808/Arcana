@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(CardVisuals))]
 public class CardToggleSelectionEvent : MonoBehaviour
 {
     private CardVisuals cardVisuals;
@@ -12,7 +11,7 @@ public class CardToggleSelectionEvent : MonoBehaviour
 
     void Awake()
     {
-        cardVisuals = GetComponent<CardVisuals>();
+        cardVisuals = GetComponentInParent<CardVisuals>();
         cardVisuals.toggleSelectionAction += HandleVisualToggle;
     }
     
