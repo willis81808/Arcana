@@ -1,5 +1,5 @@
 # Arcana
-Adds 7 new Legendary cards to the game themed after the Major Arcana of the Tarot.
+Adds 9 new Legendary cards to the game themed after the Major Arcana of the Tarot.
 
 ## Card Stats
 - The Devil
@@ -8,9 +8,17 @@ Adds 7 new Legendary cards to the game themed after the Major Arcana of the Taro
 - The Magician
 - The Moon
 - The Fool
+- The Tower
+- The Empress
 - Death
 
 # Patch Notes
+
+### 1.3.0
+- Added `The Tower` card!
+- Added `The Empress` card!
+- `The Fool` now blocks the view of a fooled player's cards for all clients
+- Arcana cards now have an audio component when they're selected
 
 ### 1.2.0
 - Added `The Fool` card!
