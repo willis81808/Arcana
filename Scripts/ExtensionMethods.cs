@@ -11,4 +11,9 @@ public static class ExtensionMethods
     {
         return !p.data.dead && !p.data.healthHandler.isRespawning;
     }
+
+    public static bool IsMinion(this Player p)
+    {
+        return ModdingUtils.AIMinion.Extensions.CharacterDataExtension.GetAdditionalData(p.data).isAIMinion;
+    }
 }

@@ -51,7 +51,7 @@ public class TealAura : MonoBehaviour
         StartCoroutine(AuraEffect());
     }
 
-    private IEnumerator AuraEffect()
+    internal IEnumerator AuraEffect()
     {
         while (true)
         {

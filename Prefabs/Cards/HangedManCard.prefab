@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7462913222027974039}
   - component: {fileID: 5514614591954998176}
   m_Layer: 0
-  m_Name: FoolCard
+  m_Name: HangedManCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,8 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89d10daf3634254bb2e6b79b9ee4280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Arcana_Fool_Theme
-  targetColor: {r: 0.6666667, g: 0.9686275, b: 0.69803923, a: 1}
+  Name: Arcana_HangedMan_Theme
+  targetColor: {r: 0.39607847, g: 0.6392157, b: 0.73333335, a: 1}
   bgColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8263570992834231699
 MonoBehaviour:
@@ -79,26 +79,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: The Fool
-  cardDestription: '<b>Fortune''s Gambit</b>: Increase the odds of gaining rare and
-    powerful abilities in the future, though at the cost of not knowing exactly what
-    these abilities will be.
-
-
-    <color="red">Immediately pick one additional card</color>'
+  cardName: The Hanged Man
+  cardDestription: '<b>Temporal Disruption</b>: Permanently slow down the movements
+    and actions of all enemies, using your own death as a means of bringing about
+    this disruption.'
   cardStats: []
   rarity: 0
-  cardArt: {fileID: 3893935163701102328, guid: 178eef6f5469a8d4396df5f9bea47c39, type: 3}
+  cardArt: {fileID: 3893935163701102328, guid: 175046fe4ef90db458778633cf52347a, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
-  categories:
-  - {fileID: 11400000, guid: ec74d66016c6a2f448788034d718aa3a, type: 2}
+  categories: []
   allowMultiple: 0
   blacklistedCategories: []
   cardBase: {fileID: 4522770397670819324, guid: e539477e546eb0545b594b51ad9bf38c,
     type: 3}
-  colorTheme: 8
+  colorTheme: 7
 --- !u!114 &8287063740587541859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundCharacterSlowFreeze: {fileID: 0}
-  AddObjectToPlayer: {fileID: 8243957350604943057, guid: 7f5b57bbccd7fc14eae29272f25114e1,
+  AddObjectToPlayer: {fileID: 5802757855555172479, guid: d873f7e674e9b93438eab5efb20be638,
     type: 3}
   objectsAddedToPlayer: []
   sizeMultiplier: 1

@@ -21,7 +21,8 @@
         "PhotonUnityNetworking.dll",
         "PhotonUnityNetworking.Utilities.dll",
         "SonigonAudioEngine.Runtime.dll",
-        "Sirenix.OdinInspector.Attributes.dll"
+        "Sirenix.OdinInspector.Attributes.dll",
+        "PlayerTimeScale.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []
