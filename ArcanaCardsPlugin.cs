@@ -22,7 +22,7 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
 {
     private const string ModId = "com.willis.rounds.arcana";
     private const string ModName = "Arcana";
-    private const string ModVersion = "1.4.0";
+    private const string ModVersion = "1.4.1";
     private const string CompatabilityModName = "Arcana";
 
     internal static LayerMask playerMask, projectileMask;
