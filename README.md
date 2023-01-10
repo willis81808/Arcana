@@ -1,5 +1,5 @@
 # Arcana
-Adds 10 new Legendary cards to the game themed after the Major Arcana of the Tarot.
+Adds 12 new Legendary cards to the game themed after the Major Arcana of the Tarot.
 
 ## Card Stats
 - The Devil
@@ -11,6 +11,8 @@ Adds 10 new Legendary cards to the game themed after the Major Arcana of the Tar
 - The Tower
 - The Empress
 - The Hanged Man
+- The Hierophant
+- Temperance
 - Death
 
 <img src="https://i.imgur.com/uaRNKCr.png" width="200px" />
