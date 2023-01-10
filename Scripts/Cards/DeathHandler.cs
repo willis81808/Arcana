@@ -13,6 +13,9 @@ using HarmonyLib;
 
 public class DeathHandler : PlayerHook
 {
+    public Color reviveBarColor;
+
+    [Header("Player colors on revive")]
     public Color[] colors;
 
     private bool active = true;
@@ -24,15 +27,18 @@ public class DeathHandler : PlayerHook
 
     private Coroutine buffCoroutine = null;
 
-    public StatChanges buffToApply = new StatChanges
+    private CustomHealthBar reviveBar;
+    
+    private StatChanges buffToApply = new StatChanges
     {
-        Damage = 2f,
+        Jumps = 1,
+        MaxAmmo = 2,
+        AttackSpeed = 0.8f,
+        MovementSpeed = 1.1f,
+        JumpHeight = 1.25f,
+        BulletSpeed = 1.25f,
         MaxHealth = 2f,
-        AttackSpeed = 0.5f,
-        MovementSpeed = 1.5f,
-        BulletSpeed = 2f,
-        Jumps = 2,
-        MaxAmmo = 3
+        Damage = 2f,
     };
 
     protected override void Start()
@@ -40,11 +46,19 @@ public class DeathHandler : PlayerHook
         base.Start();
         RevivePatch.RegisterReviveAction(player, ApplyBuff);
         RevivePatch.RegisterTrueDeathAction(player, OnTrueDeath);
+
+        // create and position revive indicator
+        reviveBar = new GameObject("Revives Bar", typeof(CustomHealthBar)).GetComponent<CustomHealthBar>();
+        player.AddStatusIndicator(reviveBar.gameObject);
+
+        // setup revive indicator
+        reviveBar.SetColor(reviveBarColor);
+        reviveBar.SetValues(player.data.stats.respawns, player.data.stats.remainingRespawns);
     }
 
     private void OnTrueDeath()
     {
-        UnityEngine.Debug.Log("True death");
+        reviveBar.CurrentHealth = reviveBar.MaxHealth;
 
         reviveCount = 0;
         ClearBuffs();
@@ -52,7 +66,7 @@ public class DeathHandler : PlayerHook
 
     private void ApplyBuff()
     {
-        UnityEngine.Debug.Log("Revive");
+        reviveBar.CurrentHealth = player.data.stats.remainingRespawns - 1;
 
         reviveCount++;
         buffCoroutine = Unbound.Instance.StartCoroutine(ApplyBuffCoroutine(reviveCount));
@@ -65,9 +79,7 @@ public class DeathHandler : PlayerHook
         int buffCount = buffs.Count;
 
         ClearBuffs();
-
-        UnityEngine.Debug.Log($"Removed {buffCount} buffs, adding {count} new buffs");
-
+        
         yield return null;
 
         colorEffect = player.gameObject.AddComponent<ReversibleColorEffect>();
@@ -83,6 +95,7 @@ public class DeathHandler : PlayerHook
 
     public override IEnumerator OnBattleStart(IGameModeHandler gameModeHandler)
     {
+        reviveBar.SetValues(player.data.stats.respawns, player.data.stats.remainingRespawns);
         ClearBuffs();
         active = true;
         reviveCount = 0;
@@ -121,6 +134,7 @@ public class DeathHandler : PlayerHook
         RevivePatch.DeregisterReviveAction(player, ApplyBuff);
         RevivePatch.DeregisterTrueDeathAction(player, OnTrueDeath);
         ClearBuffs();
+        Destroy(reviveBar.gameObject);
         base.OnDestroy();
     }
 }

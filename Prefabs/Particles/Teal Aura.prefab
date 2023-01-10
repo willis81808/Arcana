@@ -9542,9 +9542,9 @@ MonoBehaviour:
   force: 750
   minPercentage: 0
   fillTime: 1
-  effectInterval: 0.75
+  effectInterval: 0.66
   healthMultiplier: 1.05
-  damageMultiplier: 1.05
+  damageMultiplier: 1.1
   onEffectUpgrade:
     m_PersistentCalls:
       m_Calls:

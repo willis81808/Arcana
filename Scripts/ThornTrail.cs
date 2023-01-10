@@ -11,6 +11,9 @@ using ModdingUtils.Utils;
 public class ThornTrail : PlayerHook
 {
     [SerializeField]
+    private float damageScalar = 1f;
+
+    [SerializeField]
     private ParticleSystem trail;
 
     [SerializeField]
@@ -69,6 +72,6 @@ public class ThornTrail : PlayerHook
     
     private void SpawnNewZone()
     {
-        Instantiate(zone, trail.transform.position, trail.transform.rotation).Initialize(player);
+        Instantiate(zone, trail.transform.position, trail.transform.rotation).Initialize(player, damageScalar);
     }
 }

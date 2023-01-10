@@ -3,7 +3,6 @@ using UnityEngine;
 using SoundImplementation;
 using UnityEngine.Audio;
 
-[RequireComponent(typeof(SoundUnityEventPlayer))]
 public class AudioMixerFixer : MonoBehaviour
 {
     public enum AudioType
@@ -26,9 +25,18 @@ public class AudioMixerFixer : MonoBehaviour
         audioGroup = SoundVolumeManager.Instance.audioMixer.FindMatchingGroups(groupNames[type])[0];
 
         var player = GetComponent<SoundUnityEventPlayer>();
-        SetAudioMixerGroup(player.soundStart);
-        SetAudioMixerGroup(player.soundStartLoop);
-        SetAudioMixerGroup(player.soundEnd);
+        if (player != null)
+        {
+            SetAudioMixerGroup(player.soundStart);
+            SetAudioMixerGroup(player.soundStartLoop);
+            SetAudioMixerGroup(player.soundEnd);
+        }
+
+        var source = GetComponent<AudioSource>();
+        if (source != null)
+        {
+            source.outputAudioMixerGroup = audioGroup;
+        }
     }
 
     private void SetAudioMixerGroup(Sonigon.SoundEvent soundEvent)

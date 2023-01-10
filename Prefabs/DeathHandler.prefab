@@ -43,21 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98884e5aa0c9eb040b4295e68c44bc54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reviveBarColor: {r: 1, g: 0.74509805, b: 0.70980394, a: 1}
   colors:
   - {r: 0.83137256, g: 0.084833935, b: 0, a: 1}
   - {r: 1, g: 0.5612072, b: 0.503, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
-  buffToApply:
-    Bullets: 0
-    Jumps: 2
-    MaxAmmo: 3
-    AttackSpeed: 0.75
-    PlayerGravity: 1
-    MovementSpeed: 1.05
-    ProjectileGravity: 1
-    Damage: 2
-    PlayerSize: 1
-    MaxHealth: 2
-    BulletSpread: 1
-    BulletSpeed: 1.25
-    JumpHeight: 1

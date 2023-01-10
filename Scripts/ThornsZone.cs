@@ -10,21 +10,24 @@ using UnityEngine.Events;
 
 public class ThornsZone : MonoBehaviour
 {
+    private float damageScalar;
+
     [SerializeField]
     private UnityEvent onDamage;
 
     private Player owner;
 
-    public void Initialize(Player owner)
+    public void Initialize(Player owner, float damageScalar)
     {
         this.owner = owner;
+        this.damageScalar = damageScalar;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.GetComponentInParent<Player>() is Player target && target != owner)
         {
-            target.gameObject.GetOrAddComponent<ThornsDebuff>().Initialize(owner, onDamage.Invoke);
+            target.gameObject.GetOrAddComponent<ThornsDebuff>().Initialize(owner, damageScalar, onDamage.Invoke);
         }
     }
 }
@@ -44,10 +47,13 @@ public class ThornsDebuff : PlayerHook
     private const float
         baseDamage = 5f,
         duration = 1f;
+    
+    private float damageScalar = 1f;
 
-    public void Initialize(Player owner, Action onDamage)
+    public void Initialize(Player owner, float damageScalar, Action onDamage)
     {
         this.owner = owner;
+        this.damageScalar = damageScalar;
         this.onDamage = onDamage;
     }
 
@@ -90,7 +96,7 @@ public class ThornsDebuff : PlayerHook
 
     private float GetScaledDamage()
     {
-        var scalar = owner.data.weaponHandler.gun.damage * GetHealthScalar();
+        var scalar = owner.data.weaponHandler.gun.damage * GetHealthScalar() * damageScalar;
         return baseDamage * scalar;
     }
 

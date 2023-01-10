@@ -53,13 +53,18 @@ public class HangedManHandler : PlayerHook
 
     public override IEnumerator OnBattleStart(IGameModeHandler gameModeHandler)
     {
-        if (spent) yield break;
+        if (spent)
+        {
+            GetComponent<CodeAnimation>().enabled = false;
+            transform.localScale = Vector3.zero;
+            yield break;
+        }
+
+        spent = true;
 
         onStart?.Invoke();
         yield return MoveAndHold(player, Vector3.zero, duration);
         player.data.view.RPC("RPCA_Die", RpcTarget.All, Vector2.up);
-
-        spent = true;
     }
 
     public override IEnumerator OnPointEnd(IGameModeHandler gameModeHandler)

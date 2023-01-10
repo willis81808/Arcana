@@ -119,6 +119,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2117405806818892642}
     m_Modifications:
+    - target: {fileID: 1941161183743291334, guid: 0b8f503b03ceb61438a035f28f1409d0,
+        type: 3}
+      propertyPath: damageScalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5914066716376437963, guid: 0b8f503b03ceb61438a035f28f1409d0,
         type: 3}
       propertyPath: m_Name
@@ -194,6 +199,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2117405806818892642}
     m_Modifications:
+    - target: {fileID: 1941161183743291334, guid: 0b8f503b03ceb61438a035f28f1409d0,
+        type: 3}
+      propertyPath: damageScalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5914066716376437963, guid: 0b8f503b03ceb61438a035f28f1409d0,
         type: 3}
       propertyPath: m_Name
@@ -269,6 +279,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2117405806818892642}
     m_Modifications:
+    - target: {fileID: 1941161183743291334, guid: 0b8f503b03ceb61438a035f28f1409d0,
+        type: 3}
+      propertyPath: damageScalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5914066716376437963, guid: 0b8f503b03ceb61438a035f28f1409d0,
         type: 3}
       propertyPath: m_Name
@@ -344,6 +359,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2117405806818892642}
     m_Modifications:
+    - target: {fileID: 1941161183743291334, guid: 0b8f503b03ceb61438a035f28f1409d0,
+        type: 3}
+      propertyPath: damageScalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5914066716376437963, guid: 0b8f503b03ceb61438a035f28f1409d0,
         type: 3}
       propertyPath: m_Name
