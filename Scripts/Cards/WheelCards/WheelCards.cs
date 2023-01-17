@@ -110,8 +110,8 @@ public class DamageOne: SimpleCard
 
     public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
     {
-        statModifiers.health = 0.9f;
         gun.damage = 1.25f;
+        statModifiers.health = 0.9f;
     }
 
     public override bool GetEnabled()
@@ -148,8 +148,8 @@ public class DamageTwo : SimpleCard
 
     public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
     {
-        statModifiers.health = 0.8f;
         gun.damage = 1.5f;
+        statModifiers.health = 0.8f;
     }
 
     public override bool GetEnabled()
@@ -200,7 +200,7 @@ public class ReloadTwo : SimpleCard
 {
     public override CardDetails Details => new CardDetails
     {
-        Title = "Reload - I",
+        Title = "Reload - II",
         Description = "<color=\"purple\">[ Fortune ]</color>",
         Stats = new CardInfoStat[]
         {
@@ -276,7 +276,7 @@ public class BlockTwo : SimpleCard
 {
     public override CardDetails Details => new CardDetails
     {
-        Title = "Block - I",
+        Title = "Block - II",
         Description = "<color=\"purple\">[ Fortune ]</color>",
         Stats = new CardInfoStat[]
         {
