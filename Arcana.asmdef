@@ -22,7 +22,8 @@
         "PhotonUnityNetworking.Utilities.dll",
         "SonigonAudioEngine.Runtime.dll",
         "Sirenix.OdinInspector.Attributes.dll",
-        "PlayerTimeScale.dll"
+        "PlayerTimeScale.dll",
+        "ItemShops.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

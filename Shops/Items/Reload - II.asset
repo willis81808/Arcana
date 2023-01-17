@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b605a4948acafd4dabb9c54088efb7f, type: 3}
+  m_Name: Reload - II
+  m_EditorClassIdentifier: 
+  itemName: Reload - II
+  itemId: arcana_bigl_reload_item
+  currency: Fortune
+  amount: 3
+  itemPrefab: {fileID: 4475528021038460410, guid: ac110418695de8442be587ff3f3fcf29,
+    type: 3}
+  purchaseAction: {fileID: 11400000, guid: d56c03b8d828f9b44ac77c53737edb86, type: 2}
+  tags:
+  - {fileID: 11400000, guid: 155f4c2ebc3c7a640b8db25624aef593, type: 2}

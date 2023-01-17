@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1936771697300594117}
+  - component: {fileID: 114120077008337714}
   - component: {fileID: 1282057802374880627}
   - component: {fileID: 2908460693656013666}
   - component: {fileID: 8263570992834231699}
@@ -38,6 +39,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114120077008337714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820032935415401674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a7f694e38c96e4993d5776b452ba20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modName: Arcana
+  cardAbbreviation: Te
 --- !u!114 &1282057802374880627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,18 +95,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: Temperance
-  cardDestription: '<b>Harmonious Adjustment</b>: Temporarily increase positive stats
-    when losing and reduce them when winning. This ability represents the importance
-    of maintaining balance in all things.'
+  cardDestription: '<b>Harmonious Adjustment</b>: Increase positive stats when losing
+    and reduce them when winning. This ability represents the importance of maintaining
+    balance in all things.'
   cardStats:
   - positive: 1
     amount: When LOSING
     simepleAmount: 3
-    stat: +10% / point behind
+    stat: +50% / point behind
   - positive: 0
     amount: When WINNING
     simepleAmount: 5
-    stat: -5% / point ahead
+    stat: -10% / point ahead
   rarity: 0
   cardArt: {fileID: 3893935163701102328, guid: 8db75b9b7950b8a458e8a8e6382d0472, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}

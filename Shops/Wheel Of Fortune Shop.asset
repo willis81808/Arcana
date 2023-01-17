@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41d187199c19444dae66f7a47165388, type: 3}
+  m_Name: Wheel Of Fortune Shop
+  m_EditorClassIdentifier: 
+  shopName: Wheel of Fortune Shop
+  items:
+  - {fileID: 11400000, guid: 395988561988f074ab17f826ddfcd9c5, type: 2}
+  - {fileID: 11400000, guid: ff78810df5ff5774c9bae90f24502945, type: 2}
+  - {fileID: 11400000, guid: 07fccb4eff42ee340b332b223b91520d, type: 2}
+  - {fileID: 11400000, guid: 7a84c7f678f7d8a40b2c37b85e69b84b, type: 2}
+  - {fileID: 11400000, guid: 40b0569ec02f40840ac5085e6c91249b, type: 2}
+  - {fileID: 11400000, guid: 1c19be5cbe7c9f445bc96428529d37c7, type: 2}
+  - {fileID: 11400000, guid: 2cb9a4f0822cc5d4b8bcccdaec463e44, type: 2}
+  - {fileID: 11400000, guid: 6786168ef885c1d4eaf4d8d10973cf41, type: 2}

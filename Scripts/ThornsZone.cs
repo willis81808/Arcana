@@ -7,6 +7,7 @@ using UnboundLib.Extensions;
 using UnboundLib;
 using ModsPlus;
 using UnityEngine.Events;
+using Photon.Pun;
 
 public class ThornsZone : MonoBehaviour
 {

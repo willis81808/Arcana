@@ -8,6 +8,9 @@ using ModdingUtils.MonoBehaviours;
 
 public class TemperanceHandler : PlayerHook
 {
+    public const float BUFF_PERCENTAGE = 0.5f;
+    public const float DEBUFF_PERCENTAGE = 0.1f;
+
     private List<ReversibleEffect> appliedEffects = new List<ReversibleEffect>();
 
     public override IEnumerator OnBattleStart(IGameModeHandler gameModeHandler)
@@ -81,10 +84,10 @@ internal class AheadBuff : ReversibleEffect
     public override void OnStart()
     {
         SetLivesToEffect(int.MaxValue);
-        characterDataModifier.maxHealth_mult = 0.95f;
-        gunStatModifier.damage_mult = 0.95f;
-        blockModifier.cdMultiplier_mult = 1.05f;
-        gunAmmoStatModifier.reloadTimeMultiplier_mult = 1.05f;
+        characterDataModifier.maxHealth_mult = 1 - TemperanceHandler.DEBUFF_PERCENTAGE;
+        gunStatModifier.damage_mult = 1 - TemperanceHandler.DEBUFF_PERCENTAGE;
+        blockModifier.cdMultiplier_mult = 1 + TemperanceHandler.DEBUFF_PERCENTAGE;
+        gunAmmoStatModifier.reloadTimeMultiplier_mult = 1 + TemperanceHandler.DEBUFF_PERCENTAGE;
     }
 }
 
@@ -93,9 +96,9 @@ internal class BehindBuff : ReversibleEffect
     public override void OnStart()
     {
         SetLivesToEffect(int.MaxValue);
-        characterDataModifier.maxHealth_mult = 1.1f;
-        gunStatModifier.damage_mult = 1.1f;
-        blockModifier.cdMultiplier_mult = 0.9f;
-        gunAmmoStatModifier.reloadTimeMultiplier_mult = 0.9f;
+        characterDataModifier.maxHealth_mult = 1 + TemperanceHandler.BUFF_PERCENTAGE;
+        gunStatModifier.damage_mult = 1 + TemperanceHandler.BUFF_PERCENTAGE;
+        blockModifier.cdMultiplier_mult = 1 - TemperanceHandler.BUFF_PERCENTAGE;
+        gunAmmoStatModifier.reloadTimeMultiplier_mult = 1 - TemperanceHandler.BUFF_PERCENTAGE;
     }
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1936771697300594117}
+  - component: {fileID: 114513501545936476}
   - component: {fileID: 1282057802374880627}
   - component: {fileID: 2908460693656013666}
   - component: {fileID: 8263570992834231699}
@@ -38,6 +39,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114513501545936476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820032935415401674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a7f694e38c96e4993d5776b452ba20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modName: Arcana
+  cardAbbreviation: Wh
 --- !u!114 &1282057802374880627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Arcana_Wheel_Theme
-  targetColor: {r: 1, g: 0.21568629, b: 0.8078432, a: 1}
+  targetColor: {r: 1, g: 0.7803922, b: 0.48235297, a: 1}
   bgColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8263570992834231699
 MonoBehaviour:
@@ -80,9 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: Wheel of Fortune
-  cardDestription: '<b>Manifestation</b>: With this power, you may spawn homing projectiles
-    that seek out your enemies and follow them wherever they go, guided by the magic
-    of pure will.'
+  cardDestription: '<b>Fate''s Discernment</b>: Amass and spend good fortune in pursuit
+    of worldy treasures.'
   cardStats: []
   rarity: 0
   cardArt: {fileID: 3893935163701102328, guid: b76b0b3f2994409489e9092e65feed7a, type: 3}
@@ -94,7 +108,7 @@ MonoBehaviour:
   blacklistedCategories: []
   cardBase: {fileID: 4522770397670819324, guid: e539477e546eb0545b594b51ad9bf38c,
     type: 3}
-  colorTheme: 8
+  colorTheme: 1
 --- !u!114 &8287063740587541859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundCharacterSlowFreeze: {fileID: 0}
-  AddObjectToPlayer: {fileID: 0}
+  AddObjectToPlayer: {fileID: 3347661733186388370, guid: 41545ef598a1262469023855774767ae,
+    type: 3}
   objectsAddedToPlayer: []
   sizeMultiplier: 1
   health: 1
