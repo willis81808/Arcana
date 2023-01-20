@@ -95,9 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: The Moon
-  cardDestription: '<b>Lunar Burst</b>: Channel the energy of the unconscious into
-    a beam of lunar energy that explodes outward, devastating their enemies and leaving
-    them stunned in its wake.'
+  cardDestription: '<b>Lunar Burst</b>: Block to channel a beam of lunar energy that
+    explodes outward, devastating enemies and leaving them stunned.'
   cardStats:
   - positive: 1
     amount: +25%

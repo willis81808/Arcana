@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modName: Arcana
-  cardName: The Empress
   cardAbbreviation: Em
 --- !u!114 &1282057802374880627
 MonoBehaviour:
@@ -96,9 +95,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: The Empress
-  cardDestription: '<b>Nature''s Fury</b>: The Empress draws upon the primal energy
-    of the earth to call forth dangerous thorns of the land, sprouting up around her
-    to slow and damage her enemies. Her thorns are as beautiful as they are deadly.'
+  cardDestription: '<b>Nature''s Fury</b>: Draw upong the energy of the earth to call
+    forth dangerous thorns of the land, sprouting up around her to slow and damage
+    her enemies.'
   cardStats:
   - positive: 1
     amount: +30%

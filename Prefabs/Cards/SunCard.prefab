@@ -103,6 +103,10 @@ MonoBehaviour:
     amount: +1
     simepleAmount: 1
     stat: BOUNCES
+  - positive: 1
+    amount: Radiant
+    simepleAmount: 0
+    stat: Bullets
   rarity: 0
   cardArt: {fileID: 3893935163701102328, guid: 34f1d72ae543c604d9e09738495d3da4, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}

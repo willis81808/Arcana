@@ -95,9 +95,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: Wheel of Fortune
-  cardDestription: '<b>Fate''s Discernment</b>: Amass and spend good fortune in pursuit
-    of worldy treasures.'
-  cardStats: []
+  cardDestription: '<b>Fate''s Discernment</b>: Each round amass and spend good fortune
+    in pursuit of worldy treasures.'
+  cardStats:
+  - positive: 1
+    amount: +0-3
+    simepleAmount: 0
+    stat: Fortune on round loss
   rarity: 0
   cardArt: {fileID: 3893935163701102328, guid: b76b0b3f2994409489e9092e65feed7a, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}

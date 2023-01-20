@@ -52,8 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modName: Arcana
-  cardName: The Hermit
-  cardAbbreviation: De
+  cardAbbreviation: He
 --- !u!114 &1282057802374880627
 MonoBehaviour:
   m_ObjectHideFlags: 0

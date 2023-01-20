@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modName: Arcana
-  cardName: The Devil
   cardAbbreviation: De
 --- !u!114 &5676329731458453406
 MonoBehaviour:
@@ -103,6 +102,10 @@ MonoBehaviour:
     amount: +50%
     simepleAmount: 2
     stat: DAMAGE
+  - positive: 1
+    amount: Unholy
+    simepleAmount: 0
+    stat: Bullets
   rarity: 0
   cardArt: {fileID: 1606278513023228506, guid: f845341919f91b94e868d1114de9e2a1, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
