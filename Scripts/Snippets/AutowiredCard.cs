@@ -2,9 +2,12 @@
 using Sirenix.OdinInspector;
 using UnboundLib.Cards;
 using ModsPlus;
+using System.Collections.Generic;
 
 public class AutowiredCard : MonoBehaviour
 {
+    internal static Dictionary<string, CardInfo> cards = new Dictionary<string, CardInfo>();
+
     [SerializeField]
     private string modName;
 
@@ -19,7 +22,11 @@ public class AutowiredCard : MonoBehaviour
 
     public void Register()
     {
-        CustomCard.RegisterUnityCard(gameObject, modName, GetComponent<CardInfo>().cardName, true, c => c.SetAbbreviation(cardAbbreviation));
+        CustomCard.RegisterUnityCard(gameObject, modName, GetComponent<CardInfo>().cardName, true, c =>
+        {
+            c.SetAbbreviation(cardAbbreviation);
+            cards.Add(c.cardName.ToLower(), c);
+        });
     }
 
     public static void RegisterAll(AssetBundle bundle)

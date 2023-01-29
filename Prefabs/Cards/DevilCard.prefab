@@ -95,18 +95,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: The Devil
-  cardDestription: '<b>Soulfire Strike</b>: Call upon the chains of temptation and
-    enslavement to push others away and degrade their spirit.'
+  cardDestription: '[ <b>Soulfire Strike</b> ]
+
+
+    Call upon the chains of temptation and enslavement to push others away and degrade
+    their spirit.'
   cardStats:
   - positive: 1
     amount: +50%
     simepleAmount: 2
-    stat: DAMAGE
+    stat: Damage
   - positive: 1
     amount: Unholy
     simepleAmount: 0
     stat: Bullets
-  rarity: 0
+  rarity: 2
   cardArt: {fileID: 1606278513023228506, guid: f845341919f91b94e868d1114de9e2a1, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}

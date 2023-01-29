@@ -95,18 +95,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: The Tower
-  cardDestription: '<b>Thundering Strike</b>: Attacks call forth a bolt of lightning,
-    which will jump from enemy to enemy and disrupting their ranks.'
+  cardDestription: '[ <b>Thundering Strike</b> ]
+
+
+    Attacks call forth a bolt of chain lightning.'
   cardStats:
   - positive: 1
     amount: +75%
     simepleAmount: 3
-    stat: BULLET SPEED
+    stat: Bullet speed
   - positive: 1
     amount: Electrified
     simepleAmount: 0
     stat: Bullets
-  rarity: 0
+  rarity: 2
   cardArt: {fileID: 3893935163701102328, guid: 7889c6e80553fd34aaabefaeef1469c6, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}

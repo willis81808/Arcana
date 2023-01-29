@@ -5,7 +5,8 @@
         "ModdingUtils",
         "ModsPlus",
         "Unity.TextMeshPro",
-        "RarityLib"
+        "RarityLib",
+        "CardChoiceSpawnUniqueCardPatch"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

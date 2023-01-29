@@ -25,6 +25,12 @@ public class SpawnBurst : MonoBehaviour
             var obj = Instantiate(objectToSpawn, transform.position, objectToSpawn.transform.rotation);
             spawnedObjects.Add(obj);
 
+            if (obj.GetComponent<SpawnedAttack>() is SpawnedAttack spawned && GetComponent<SpawnedAttack>() is SpawnedAttack spawner)
+            {
+                spawned.spawner = spawner.spawner;
+                spawned.attackLevel = spawner.attackLevel;
+            }
+
             if (randomizeDirection)
             {
                 var rot = obj.transform.eulerAngles;

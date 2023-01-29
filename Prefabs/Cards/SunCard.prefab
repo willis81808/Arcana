@@ -95,19 +95,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: The Sun
-  cardDestription: '<b>Radiant Judgment</b>: Channel the power of the sun into your
-    shots, causing them to ignite with divine fire that burns away falsehoods and
-    enemies alike.'
+  cardDestription: '[ <b>Radiant Judgment</b> ]
+
+
+    Attacks spawn a burst of radiant beams.'
   cardStats:
   - positive: 1
     amount: +1
     simepleAmount: 1
-    stat: BOUNCES
+    stat: Bounces
   - positive: 1
     amount: Radiant
     simepleAmount: 0
     stat: Bullets
-  rarity: 0
+  rarity: 2
   cardArt: {fileID: 3893935163701102328, guid: 34f1d72ae543c604d9e09738495d3da4, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}

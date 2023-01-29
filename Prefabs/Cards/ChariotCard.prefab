@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1936771697300594117}
-  - component: {fileID: 114161551624253046}
+  - component: {fileID: 114234914940715238}
   - component: {fileID: 1282057802374880627}
   - component: {fileID: 2908460693656013666}
   - component: {fileID: 8263570992834231699}
@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7462913222027974039}
   - component: {fileID: 5514614591954998176}
   m_Layer: 0
-  m_Name: MoonCard
+  m_Name: ChariotCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
---- !u!114 &114161551624253046
+--- !u!114 &114234914940715238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modName: Arcana
-  cardAbbreviation: Mo
+  cardAbbreviation: Ch
 --- !u!114 &1282057802374880627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89d10daf3634254bb2e6b79b9ee4280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Arcana_Moon_Theme
-  targetColor: {r: 0.18039216, g: 0.5019608, b: 0.63529414, a: 1}
+  Name: Arcana_Chariot_Theme
+  targetColor: {r: 1, g: 1, b: 0.2627451, a: 1}
   bgColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8263570992834231699
 MonoBehaviour:
@@ -94,22 +94,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: The Moon
-  cardDestription: '[ <b>Lunar Burst</b> ]
+  cardName: The Chariot
+  cardDestription: '[ <b>Reckless Charge<b> ]
 
 
-    Blocking spawns a lunar beamm, damaging and stunning enemies.'
-  cardStats:
-  - positive: 1
-    amount: +25%
-    simepleAmount: 2
-    stat: Health
-  - positive: 1
-    amount: -25%
-    simepleAmount: 6
-    stat: Block cooldown
+    Blocking releases a surge of energy damaging enemies in its wake.'
+  cardStats: []
   rarity: 2
-  cardArt: {fileID: 6279288524393080084, guid: 5e7499e97a21d7945a3236ead014ba0d, type: 3}
+  cardArt: {fileID: 3893935163701102328, guid: dc73aa783f78098428229967e774f8d5, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
@@ -135,7 +127,7 @@ MonoBehaviour:
   AddObjectToPlayer: {fileID: 0}
   objectsAddedToPlayer: []
   sizeMultiplier: 1
-  health: 1.25
+  health: 1
   movementSpeed: 1
   jump: 1
   gravity: 1
@@ -270,14 +262,14 @@ MonoBehaviour:
   soundBlockBlocked: {fileID: 0}
   soundBlockStatusEffect: {fileID: 0}
   objectsToSpawn:
-  - {fileID: 8140653295685109290, guid: a5601841ea3c7724cb5489ef45f1db6f, type: 3}
+  - {fileID: 9180079615086713129, guid: a9031d0fb3c66bd4eac0eb122ad40279, type: 3}
   sinceBlock: 0
   particle: {fileID: 0}
   reloadParticle: {fileID: 0}
   blockedPart: {fileID: 0}
   cooldown: 0
   counter: 1000
-  cdMultiplier: 0.75
+  cdMultiplier: 1
   cdAdd: 0
   forceToAdd: 0
   forceToAddUp: 0

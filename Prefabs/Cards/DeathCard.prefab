@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modName: Arcana
-  cardName: Death
   cardAbbreviation: De
 --- !u!114 &1282057802374880627
 MonoBehaviour:
@@ -96,23 +95,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: Death
-  cardDestription: '<b>Eternal Reclamation</b>: Each time the user is revived, they
-    will return stronger and more resilient, their experiences in death fueling their
-    power and determination.'
+  cardDestription: '[ <b>Eternal Reclamation</b> ]
+
+
+    Each time the user is revived, they will return stronger and more resilient.'
   cardStats:
   - positive: 1
     amount: +2
     simepleAmount: 2
-    stat: LIVES
+    stat: Lives
   - positive: 0
     amount: -66%
     simepleAmount: 7
-    stat: HEALTH
+    stat: Health
   - positive: 0
     amount: -66%
     simepleAmount: 7
-    stat: DAMAGE
-  rarity: 0
+    stat: Damage
+  rarity: 2
   cardArt: {fileID: 3893935163701102328, guid: b509cb1c25a000949ae5f4f90dbc7aee, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}

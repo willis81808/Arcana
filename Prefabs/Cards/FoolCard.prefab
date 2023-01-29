@@ -95,9 +95,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: The Fool
-  cardDestription: '<b>Fortune''s Gambit</b>: Increase the odds of gaining rare and
-    powerful abilities in the future, though at the cost of not knowing exactly what
-    these abilities will be.
+  cardDestription: '[ <b>Fortune''s Gambit</b> ]
+
+
+    Increase the odds of gaining rare and powerful abilities in the future, though
+    at the cost of not knowing exactly what these abilities will be.
 
 
     <color="red">Immediately pick one additional card</color>'
@@ -106,7 +108,7 @@ MonoBehaviour:
     amount: 10x
     simepleAmount: 0
     stat: rare card likelyhood
-  rarity: 0
+  rarity: 2
   cardArt: {fileID: 3893935163701102328, guid: 178eef6f5469a8d4396df5f9bea47c39, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}

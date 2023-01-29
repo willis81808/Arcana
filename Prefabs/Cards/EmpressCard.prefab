@@ -95,15 +95,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: The Empress
-  cardDestription: '<b>Nature''s Fury</b>: Draw upong the energy of the earth to call
-    forth dangerous thorns of the land, sprouting up around her to slow and damage
-    her enemies.'
+  cardDestription: '[ <b>Nature''s Fury</b> ]
+
+
+    Call forth damaging and slowing thorns where you pass.'
   cardStats:
   - positive: 1
     amount: +30%
     simepleAmount: 2
-    stat: HEALTH
-  rarity: 0
+    stat: Health
+  rarity: 2
   cardArt: {fileID: 9189453168236018483, guid: edb80f488eb3b9045b7fb50b08c5fce7, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}

@@ -14,8 +14,12 @@ using UnboundLib.GameModes;
 using ItemShops.Utils;
 using ItemShops.Extensions;
 using UnboundLib.Networking;
+using System.IO;
+using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using UnboundLib.Utils;
 
 [BepInDependency("com.willis.rounds.unbound")]
+[BepInDependency("pykess.rounds.plugins.cardchoicespawnuniquecardpatch")]
 [BepInDependency("pykess.rounds.plugins.moddingutils")]
 [BepInDependency("com.willuwontu.rounds.itemshops")]
 [BepInDependency("com.willis.rounds.modsplus")]
@@ -28,9 +32,9 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
 {
     private const string ModId = "com.willis.rounds.arcana";
     private const string ModName = "Arcana";
-    private const string ModVersion = "1.7.2";
+    private const string ModVersion = "1.9.2";
     private const string CompatabilityModName = "Arcana";
-    
+
     internal static LayerMask playerMask, projectileMask, floorMask;
     internal static ConfigEntry<bool> reducedParticles;
 
@@ -64,20 +68,52 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
         harmony.PatchAll();
 
         reducedParticles = Config.Bind(CompatabilityModName, "Arcana_ReducedParticles", false, "Enable reduced particle mode for faster performance");
+
         Unbound.RegisterMenu(ModName, null, SetupMenu, showInPauseMenu: true);
-
-        Unbound.Instance.ExecuteAfterSeconds(3f, () =>
-        {
-            wheelOfFortuneShop = Assets.WheelOfFortuneShop.GetValue();
-            UnityEngine.Debug.Log("Created Wheel of Fortune Shop");
-
-            wheelOfFortuneShop.itemPurchasedAction += (p, i) =>
-            {
-                NetworkingManager.RPC(typeof(FortuneHandler), nameof(FortuneHandler.OnItemPurchased));
-            };
-        });
+        Unbound.AddAllCardsCallback(ApplyBlacklists);
+        Unbound.Instance.ExecuteAfterSeconds(3f, DelayedSetup);
     }
-    
+
+    private void ApplyBlacklists(CardInfo[] cards)
+    {
+        // blacklist justice from decay-like cards
+        var justiceCard = AutowiredCard.cards["justice"];
+        foreach (var card in cards.Where(c => c != justiceCard && c.GetComponent<CharacterStatModifiers>() is CharacterStatModifiers sm && sm.secondsToTakeDamageOver > 0))
+        {
+            CustomCardCategories.instance.MakeCardsExclusive(justiceCard, card);
+        }
+
+        // blacklist death from phoenix-like cards
+        var deathCard = AutowiredCard.cards["death"];
+        foreach (var card in cards.Where(c => c != deathCard && c.GetComponent<CharacterStatModifiers>() is CharacterStatModifiers sm && sm.respawns > 0))
+        {
+            CustomCardCategories.instance.MakeCardsExclusive(deathCard, card);
+        }
+    }
+
+    private void DelayedSetup()
+    {
+        // setup fortune shop
+        wheelOfFortuneShop = Assets.WheelOfFortuneShop.GetValue();
+        wheelOfFortuneShop.itemPurchasedAction += (p, i) =>
+        {
+            NetworkingManager.RPC(typeof(FortuneHandler), nameof(FortuneHandler.OnItemPurchased));
+        };
+        UnityEngine.Debug.Log("[Arcana] Created Wheel of Fortune Shop");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            var path = Path.Combine(Path.GetDirectoryName(typeof(ArcanaCardsPlugin).Assembly.Location), "bundle");
+            foreach (var part in path.ToString().Split('\\'))
+            {
+                Logger.LogInfo(part);
+            }
+        }
+    }
+
     private void SetupMenu(GameObject menu)
     {
         MenuHandler.CreateToggle(reducedParticles.Value, "Reduced Particle Mode", menu, val => reducedParticles.Value = val, 30, false);

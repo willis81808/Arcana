@@ -95,9 +95,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: The Hierophant
-  cardDestription: '<b>Binding Wisdom</b>: Draw upon the wisdom of the ages and use
-    it to bind and restrain your enemies. Let the power of tradition and authority
-    bring all opposition to heel.'
+  cardDestription: '[ <b>Binding Wisdom</b> ]
+
+
+    Let the power of tradition and authority bring all opposition to heel.'
   cardStats:
   - positive: 0
     amount: +6s
@@ -107,7 +108,7 @@ MonoBehaviour:
     amount: Restraining
     simepleAmount: 0
     stat: Bullets
-  rarity: 0
+  rarity: 2
   cardArt: {fileID: 3893935163701102328, guid: 4d0095c16dd7bb84791a435f26f03398, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
