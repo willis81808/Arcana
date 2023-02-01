@@ -1,11 +1,7 @@
 ﻿using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnboundLib;
-using ModdingUtils;
 using ModsPlus;
-using RarityLib;
 using RarityLib.Utils;
 
 public class FoolHandler : PlayerHook
@@ -26,7 +22,7 @@ public class FoolHandler : PlayerHook
         if (!player.data.view.IsMine) return;
 
         var rareData = RarityUtils.GetRarityData(CardInfo.Rarity.Rare);
-        foreach (var rarity in RarityUtils.Rarities.Values.Where(r => r.calculatedRarity <= rareData.calculatedRarity))
+        foreach (var rarity in RarityUtils.Rarities.Values.Where(r => r.relativeRarity <= rareData.relativeRarity))
         {
             UpdateRarity(rarity, rarityScalar);
         }
