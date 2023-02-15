@@ -19,19 +19,7 @@ public class FortuneHandler : PlayerHook
         base.Awake();
         FinishedPickingEvent.RegisterListener(DonePicking);
     }
-
-    [UnboundRPC]
-    internal static void OnItemPurchased()
-    {
-        new FinishedPickingEvent().FireEvent();
-    }
-
-    private void DonePicking(FinishedPickingEvent e)
-    {
-        isShopping = false;
-        ArcanaCardsPlugin.wheelOfFortuneShop.Hide();
-    }
-
+    
     public override IEnumerator OnPickPhaseStart(IGameModeHandler gameModeHandler)
     {
         isShopping = false;
@@ -43,7 +31,9 @@ public class FortuneHandler : PlayerHook
     {
         foreach (var player in PlayerManager.instance.players)
         {
-            if (player.GetComponentInChildren<FortuneHandler>() == null) continue;
+            var handler = player.GetComponentInChildren<FortuneHandler>();
+
+            if (handler == null) continue;
             if (trackedPlayers.Contains(player)) continue;
             if (gameModeHandler.GetRoundWinners().Contains(player.playerID)) continue;
 
@@ -51,15 +41,19 @@ public class FortuneHandler : PlayerHook
 
             yield return new WaitForSeconds(0.5f);
 
+            // spin the wheel
             var wheel = Instantiate(Assets.Bundle.LoadAsset<GameObject>("Fortune's Wheel").GetComponent<FortunesWheel>(), Unbound.Instance.canvas.transform);
             yield return null;
             wheel.Initialize(player);
+
+            // wait for wheel to stop spinning
             yield return new WaitUntil(() => wheel == null);
             yield return new WaitForSeconds(0.5f);
 
+            // open shop if player has any fortune
             if (player.GetAdditionalData().bankAccount.Money.TryGetValue("Fortune", out int balance) && balance > 0)
             {
-                isShopping = true;
+                handler.isShopping = true;
 
                 ArcanaCardsPlugin.wheelOfFortuneShop.Show(player);
                 if (!player.data.view.IsMine)
@@ -71,11 +65,11 @@ public class FortuneHandler : PlayerHook
 
                 float startTime = Time.time;
                 yield return new WaitUntil(() =>
-                    !isShopping ||
+                    !handler.isShopping ||
                     (player.data.view.IsMine && !ArcanaCardsPlugin.wheelOfFortuneShop.IsOpen) ||
                     (Time.time - startTime >= FortunesCountdown.duration)
                 );
-                NetworkingManager.RPC(typeof(FortuneHandler), nameof(OnItemPurchased));
+                NetworkingManager.RPC(typeof(FortuneHandler), nameof(OnItemPurchased), player.playerID);
                 ArcanaCardsPlugin.wheelOfFortuneShop.Hide();
                 yield return new WaitForSeconds(0.5f);
             }
@@ -88,5 +82,29 @@ public class FortuneHandler : PlayerHook
         FinishedPickingEvent.UnregisterListener(DonePicking);
     }
 
-    internal class FinishedPickingEvent : EventDispatcher.Event<FinishedPickingEvent> { }
+    [UnboundRPC]
+    internal static void OnItemPurchased(int playerId)
+    {
+        var player = ModsPlus.ExtensionMethods.GetPlayerWithID(PlayerManager.instance, playerId);
+        new FinishedPickingEvent(player).FireEvent();
+    }
+
+    private void DonePicking(FinishedPickingEvent e)
+    {
+        var self = GetComponentInParent<Player>();
+        if (self == null || self != e.target) return;
+
+        isShopping = false;
+        ArcanaCardsPlugin.wheelOfFortuneShop.Hide();
+    }
+
+    internal class FinishedPickingEvent : EventDispatcher.Event<FinishedPickingEvent>
+    {
+        public Player target;
+
+        public FinishedPickingEvent(Player target)
+        {
+            this.target = target;
+        }
+    }
 }

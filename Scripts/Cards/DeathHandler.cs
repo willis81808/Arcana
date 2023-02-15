@@ -40,7 +40,7 @@ public class DeathHandler : PlayerHook
         MaxHealth = 2f,
         Damage = 2f,
     };
-
+    
     protected override void Start()
     {
         base.Start();

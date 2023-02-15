@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91506852df047ea448853ae2ba2fc130, type: 3}
-  m_Name: Block - I
+  m_Script: {fileID: 11500000, guid: 0b605a4948acafd4dabb9c54088efb7f, type: 3}
+  m_Name: Block - II
   m_EditorClassIdentifier: 
-  itemName: Block - I
-  itemId: arcana_small_block_item
+  itemName: Block - II
+  itemId: arcana_big_block_item
   currency: Fortune
-  amount: 1
+  amount: 3
+  itemPrefab: {fileID: 4475528021038460410, guid: ac110418695de8442be587ff3f3fcf29,
+    type: 3}
+  purchaseAction: {fileID: 11400000, guid: c68c14fe00b731b4083e10c78481555d, type: 2}
   tags:
   - {fileID: 11400000, guid: 96ee3a48c7a16d44daa433dbb84e3ff7, type: 2}
-  card: {fileID: 11400000, guid: e50e10b45fae6be478291c039f5a3fb2, type: 2}

@@ -310,3 +310,65 @@ public class BlockTwo : SimpleCard
         return false;
     }
 }
+
+
+public class AmmoOne : SimpleCard
+{
+    public override CardDetails Details => new CardDetails
+    {
+        Title = "Ammo - I",
+        Description = "<color=\"purple\">[ Fortune ]</color>",
+        Stats = new CardInfoStat[]
+        {
+            new CardInfoStat
+            {
+                positive = true,
+                amount = "+3",
+                simepleAmount = CardInfoStat.SimpleAmount.Some,
+                stat = "Ammo"
+            }
+        },
+        ModName = "Arcana"
+    };
+
+    public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
+    {
+        gun.ammo = 3;
+    }
+
+    public override bool GetEnabled()
+    {
+        return false;
+    }
+}
+
+
+public class AmmoTwo : SimpleCard
+{
+    public override CardDetails Details => new CardDetails
+    {
+        Title = "Ammo - II",
+        Description = "<color=\"purple\">[ Fortune ]</color>",
+        Stats = new CardInfoStat[]
+        {
+            new CardInfoStat
+            {
+                positive = true,
+                amount = "+6",
+                simepleAmount = CardInfoStat.SimpleAmount.Some,
+                stat = "Ammo"
+            }
+        },
+        ModName = "Arcana"
+    };
+
+    public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
+    {
+        gun.ammo = 6;
+    }
+
+    public override bool GetEnabled()
+    {
+        return false;
+    }
+}

@@ -9,15 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b605a4948acafd4dabb9c54088efb7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 91506852df047ea448853ae2ba2fc130, type: 3}
   m_Name: Health - I
   m_EditorClassIdentifier: 
   itemName: Health - I
   itemId: arcana_small_health_item
   currency: Fortune
   amount: 1
-  itemPrefab: {fileID: 4475528021038460410, guid: ac110418695de8442be587ff3f3fcf29,
-    type: 3}
-  purchaseAction: {fileID: 11400000, guid: 60e22b2c88cc60d409cb1a809aee6395, type: 2}
   tags:
   - {fileID: 11400000, guid: 42701a61d0b299d4c9c196d991611d7c, type: 2}
+  card: {fileID: 11400000, guid: 46f9a74109a697f41ba7dd729328196a, type: 2}

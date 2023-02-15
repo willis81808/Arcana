@@ -32,7 +32,7 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
 {
     private const string ModId = "com.willis.rounds.arcana";
     private const string ModName = "Arcana";
-    private const string ModVersion = "1.9.4";
+    private const string ModVersion = "1.9.5";
     private const string CompatabilityModName = "Arcana";
 
     internal static LayerMask playerMask, projectileMask, floorMask;
@@ -54,6 +54,8 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
         CardRegistry.RegisterCard<ReloadTwo>(true);
         CardRegistry.RegisterCard<BlockOne>(true);
         CardRegistry.RegisterCard<BlockTwo>(true);
+        CardRegistry.RegisterCard<AmmoOne>(true);
+        CardRegistry.RegisterCard<AmmoTwo>(true);
 
         GameModeManager.AddHook(GameModeHooks.HookPlayerPickEnd, (gm) => TempExtraPicks.HandleExtraPicks());
 
@@ -97,23 +99,11 @@ public class ArcanaCardsPlugin : BaseUnityPlugin
         wheelOfFortuneShop = Assets.WheelOfFortuneShop.GetValue();
         wheelOfFortuneShop.itemPurchasedAction += (p, i) =>
         {
-            NetworkingManager.RPC(typeof(FortuneHandler), nameof(FortuneHandler.OnItemPurchased));
+            NetworkingManager.RPC(typeof(FortuneHandler), nameof(FortuneHandler.OnItemPurchased), p.playerID);
         };
         UnityEngine.Debug.Log("[Arcana] Created Wheel of Fortune Shop");
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Keypad0))
-        {
-            var path = Path.Combine(Path.GetDirectoryName(typeof(ArcanaCardsPlugin).Assembly.Location), "bundle");
-            foreach (var part in path.ToString().Split('\\'))
-            {
-                Logger.LogInfo(part);
-            }
-        }
-    }
-
+    
     private void SetupMenu(GameObject menu)
     {
         MenuHandler.CreateToggle(reducedParticles.Value, "Reduced Particle Mode", menu, val => reducedParticles.Value = val, 30, false);

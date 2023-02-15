@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91506852df047ea448853ae2ba2fc130, type: 3}
-  m_Name: Reload - II
+  m_Name: Ammo - I
   m_EditorClassIdentifier: 
-  itemName: Reload - II
-  itemId: arcana_large_reload_item
+  itemName: Ammo - I
+  itemId: arcana_small_ammo_item
   currency: Fortune
-  amount: 3
+  amount: 1
   tags:
-  - {fileID: 11400000, guid: 155f4c2ebc3c7a640b8db25624aef593, type: 2}
-  card: {fileID: 11400000, guid: 9913179271a896443be527eab37fb261, type: 2}
+  - {fileID: 11400000, guid: 9a77f921682a50645ba8d9aad2698ecc, type: 2}
+  card: {fileID: 11400000, guid: 9a240519d6478ec44806067de4c9323f, type: 2}

@@ -21,7 +21,15 @@ public class FortunesWheel : MonoBehaviour
 
     public void CalculateReward()
     {
-        if (target != null && !target.data.view.IsMine) return;
+        if (target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else if (!target.data.view.IsMine)
+        {
+            return;
+        }
 
         int winnings = Random.Range(0, 4);
         NetworkingManager.RPC(typeof(FortunesWheel), nameof(RPCA_ShowReward), winnings);

@@ -21,7 +21,9 @@ public class StatBuffAction : PurchaseAction
         ReloadOne,
         ReloadTwo,
         BlockOne,
-        BlockTwo
+        BlockTwo,
+        AmmoOne,
+        AmmoTwo
     }
 
     private static Dictionary<BuffType, Type> buffCardMap = new Dictionary<BuffType, Type>
@@ -37,6 +39,9 @@ public class StatBuffAction : PurchaseAction
 
         { BuffType.BlockOne, typeof(BlockOne) },
         { BuffType.BlockTwo, typeof(BlockTwo) },
+
+        { BuffType.AmmoOne, typeof(AmmoOne) },
+        { BuffType.AmmoTwo, typeof(AmmoTwo) },
     };
 
     public BuffType buffType;

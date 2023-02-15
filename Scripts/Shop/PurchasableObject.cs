@@ -29,8 +29,7 @@ public class PurchasableObject : ScriptableObject, IProvider<Purchasable>
 
     [InlineEditor]
     public PurchaseAction purchaseAction;
-
-    [AssetSelector, InlineEditor]
+    
     public TagObject[] tags;
 
     public Purchasable GetValue()

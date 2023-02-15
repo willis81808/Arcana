@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: Wheel Of Fortune Shop
   m_EditorClassIdentifier: 
   shopName: Wheel of Fortune Shop
-  items:
-  - {fileID: 11400000, guid: 395988561988f074ab17f826ddfcd9c5, type: 2}
-  - {fileID: 11400000, guid: ff78810df5ff5774c9bae90f24502945, type: 2}
-  - {fileID: 11400000, guid: 07fccb4eff42ee340b332b223b91520d, type: 2}
-  - {fileID: 11400000, guid: 7a84c7f678f7d8a40b2c37b85e69b84b, type: 2}
-  - {fileID: 11400000, guid: 40b0569ec02f40840ac5085e6c91249b, type: 2}
-  - {fileID: 11400000, guid: 1c19be5cbe7c9f445bc96428529d37c7, type: 2}
-  - {fileID: 11400000, guid: 2cb9a4f0822cc5d4b8bcccdaec463e44, type: 2}
-  - {fileID: 11400000, guid: 6786168ef885c1d4eaf4d8d10973cf41, type: 2}
+  items: []
+  cards:
+  - {fileID: 11400000, guid: f5ba1fd4f1561ee498116b83c5b4a3f4, type: 2}
+  - {fileID: 11400000, guid: 2c60d9e275b8b5b44b8de9fda15d6d1c, type: 2}
+  - {fileID: 11400000, guid: 38d96177b5c15c4498d4f0acd82a8ede, type: 2}
+  - {fileID: 11400000, guid: 67203870c1fb9e94a811f3b1ced67fd5, type: 2}
+  - {fileID: 11400000, guid: 8a91f3dbcc0e78d4eaa38b666e233f05, type: 2}
+  - {fileID: 11400000, guid: 07a9893e47921274c8084f26f6a83718, type: 2}
+  - {fileID: 11400000, guid: 2c3a905e3ead6a946ac0818c6b5fc389, type: 2}
+  - {fileID: 11400000, guid: 59d104d8881ccae4598b3538a69a66df, type: 2}
+  - {fileID: 11400000, guid: de7dffee932788c4899627b2a3bd2c08, type: 2}
+  - {fileID: 11400000, guid: 0a1d889891a82ac43b32b1a8fb51b7b1, type: 2}
